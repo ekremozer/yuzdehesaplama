@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="tr">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Yüzde Hesaplama</title>
+      <link href="style.css" rel="stylesheet">
+	  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+   </head>
+   <body>
+      <div class="container">
+         <h1>Yüzde Hesaplama</h1>
+         <small>Yüzde hesaplama işlemleri, formülleri</small>
+		 <!-- #Formula-1 -->
+         <form class="row form-stil">
+            <div class="col-12 caption">
+               <div>
+                  <a href="#formula1">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
+                        <path d="M17.033 6.966c.584.583.584 1.529 0 2.112l-7.955 7.956c-.583.583-1.529.583-2.112 0-.583-.583-.583-1.529 0-2.112l7.956-7.956c.582-.583 1.528-.583 2.111 0zm-9.138 13.386c-1.171 1.171-3.076 1.171-4.248 0-1.171-1.171-1.171-3.077 0-4.248l5.639-5.632c-1.892-.459-3.971.05-5.449 1.528l-2.147 2.147c-2.254 2.254-2.254 5.909 0 8.163 2.254 2.254 5.909 2.254 8.163 0l2.147-2.148c1.477-1.477 1.986-3.556 1.527-5.448l-5.632 5.638zm6.251-18.662l-2.146 2.148c-1.478 1.478-1.99 3.553-1.53 5.445l5.634-5.635c1.172-1.171 3.077-1.171 4.248 0 1.172 1.171 1.172 3.077 0 4.248l-5.635 5.635c1.893.459 3.968-.053 5.445-1.53l2.146-2.147c2.254-2.254 2.254-5.908 0-8.163-2.253-2.254-5.908-2.254-8.162-.001z"/>
+                     </svg>
+                  </a>
+               </div>
+               <h2 id="formula1">A Sayısının %B'si Kaçtır?</h2>
+            </div>
+            <span class="result-border"></span>
+            <div class="col-lg-2 col-md-2 col-12">
+               <input type="text" autocomplete="off" id="formula1-val-1"/>
+            </div>
+            <div class="col-lg-1 col-md-2 col-12 padding margin-10-0">
+               <span class="vertical-center">Sayısının %</span>
+            </div>
+            <div class="col-lg-2 col-md-2 col-12">
+               <input type="text" autocomplete="off" class="width-calc-20 width-calc-30" id="formula1-val-2"/>
+               <span class="vertical-center attachment" id="formula1-val-2-attachment"></span>
+            </div>
+            <div class="col-lg-2 col-md-1 col-12 padding">
+               <span class="vertical-center">Kaçtır?</span>
+            </div>
+            <div class="col-lg-1 col-md-2 col-12 padding margin-10-0">
+               <button class="vertical-center horizontal-center margin-top-3 left" onclick="formula1Calculate()">Hesapla</button>
+            </div>
+            <div class="col-lg-2 col-md-2 col-10">
+               <input type="text" readonly id="formula1-result"/>
+            </div>
+            <div class="col-lg-1 col-md-1 col-2 padding margin-top-12 margin-top-11">
+               <span class="tooltip vertical-center">
+                  <span class="tooltiptext bottom-95">Kopyala</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" onclick="copyTextToClipboardInput('formula1-result')">
+                     <path d="M22 6v16h-16v-16h16zm2-2h-20v20h20v-20zm-24 17v-21h21v2h-19v19h-2z"/>
+                  </svg>
+               </span>
+            </div>
+            <span class="result-border"></span>
+            <div class="col-12 result">
+               <span id="formula1-result-desc"></span>
+               <div class="tooltip cursor-pointer">
+                  <span class="tooltiptext">Kopyala</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" onclick="copyTextToClipboardSpan('formula1-result-desc')">
+                     <path d="M22 6v16h-16v-16h16zm2-2h-20v20h20v-20zm-24 17v-21h21v2h-19v19h-2z"/>
+                  </svg>
+               </div>
+            </div>
+         </form>
+         <div class="row line"></div>
+		  <!-- #Formula-5 -->
+		 <form class="row form-stil">
+            <div class="col-12 caption">
+               <div>
+                  <a href="#formula5">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
+                        <path d="M17.033 6.966c.584.583.584 1.529 0 2.112l-7.955 7.956c-.583.583-1.529.583-2.112 0-.583-.583-.583-1.529 0-2.112l7.956-7.956c.582-.583 1.528-.583 2.111 0zm-9.138 13.386c-1.171 1.171-3.076 1.171-4.248 0-1.171-1.171-1.171-3.077 0-4.248l5.639-5.632c-1.892-.459-3.971.05-5.449 1.528l-2.147 2.147c-2.254 2.254-2.254 5.909 0 8.163 2.254 2.254 5.909 2.254 8.163 0l2.147-2.148c1.477-1.477 1.986-3.556 1.527-5.448l-5.632 5.638zm6.251-18.662l-2.146 2.148c-1.478 1.478-1.99 3.553-1.53 5.445l5.634-5.635c1.172-1.171 3.077-1.171 4.248 0 1.172 1.171 1.172 3.077 0 4.248l-5.635 5.635c1.893.459 3.968-.053 5.445-1.53l2.146-2.147c2.254-2.254 2.254-5.908 0-8.163-2.253-2.254-5.908-2.254-8.162-.001z"/>
+                     </svg>
+                  </a>
+               </div>
+               <h2 id="formula5">A Sayısı B Sayısının Yüzde Kaçtır?</h2>
+            </div>
+            <span class="result-border"></span>
+            <div class="col-lg-2 col-md-2 col-12">
+               <input type="text" autocomplete="off" id="formula5-val-1"/>
+            </div>
+            <div class="col-lg-1 col-md-1 col-12 padding margin-10-0">
+               <span class="vertical-center">Sayısı</span>
+            </div>
+            <div class="col-lg-2 col-md-2 col-12">
+               <input type="text" autocomplete="off" id="formula5-val-2"/>
+            </div>
+            <div class="col-lg-2 col-md-2 col-12 padding">
+               <span class="vertical-center font-size-16">Sayısının Yüzde Kaçtır?</span>
+            </div>
+            <div class="col-lg-1 col-md-2 col-12 padding margin-10-0">
+               <button class="vertical-center horizontal-center margin-top-3 left" onclick="formula5Calculate()">Hesapla</button>
+            </div>
+            <div class="col-lg-2 col-md-2 col-10">
+               <input type="text" readonly id="formula5-result"/>
+            </div>
+            <div class="col-lg-1 col-md-1 col-2 padding margin-top-12 margin-top-11">
+               <span class="tooltip vertical-center">
+                  <span class="tooltiptext bottom-95">Kopyala</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" onclick="copyTextToClipboardInput('formula5-result')">
+                     <path d="M22 6v16h-16v-16h16zm2-2h-20v20h20v-20zm-24 17v-21h21v2h-19v19h-2z"/>
+                  </svg>
+               </span>
+            </div>
+            <span class="result-border"></span>
+            <div class="col-12 result">
+               <span id="formula5-result-desc"></span>
+               <div class="tooltip cursor-pointer">
+                  <span class="tooltiptext">Kopyala</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" onclick="copyTextToClipboardSpan('formula5-result-desc')">
+                     <path d="M22 6v16h-16v-16h16zm2-2h-20v20h20v-20zm-24 17v-21h21v2h-19v19h-2z"/>
+                  </svg>
+               </div>
+            </div>
+         </form>
+         <div class="row line"></div>
+		  <!-- #Formula-2 -->
+         <form class="row form-stil">
+            <div class="col-12 caption">
+               <div>
+                  <a href="#formula2">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
+                        <path d="M17.033 6.966c.584.583.584 1.529 0 2.112l-7.955 7.956c-.583.583-1.529.583-2.112 0-.583-.583-.583-1.529 0-2.112l7.956-7.956c.582-.583 1.528-.583 2.111 0zm-9.138 13.386c-1.171 1.171-3.076 1.171-4.248 0-1.171-1.171-1.171-3.077 0-4.248l5.639-5.632c-1.892-.459-3.971.05-5.449 1.528l-2.147 2.147c-2.254 2.254-2.254 5.909 0 8.163 2.254 2.254 5.909 2.254 8.163 0l2.147-2.148c1.477-1.477 1.986-3.556 1.527-5.448l-5.632 5.638zm6.251-18.662l-2.146 2.148c-1.478 1.478-1.99 3.553-1.53 5.445l5.634-5.635c1.172-1.171 3.077-1.171 4.248 0 1.172 1.171 1.172 3.077 0 4.248l-5.635 5.635c1.893.459 3.968-.053 5.445-1.53l2.146-2.147c2.254-2.254 2.254-5.908 0-8.163-2.253-2.254-5.908-2.254-8.162-.001z"/>
+                     </svg>
+                  </a>
+               </div>
+               <h2 id="formula1">A Sayısının %B Fazlası Kaçtır?</h2>
+            </div>
+            <span class="result-border"></span>
+            <div class="col-lg-2 col-md-2 col-12">
+               <input type="text" autocomplete="off" id="formula2-val-1"/>
+            </div>
+            <div class="col-lg-1 col-md-1 col-12 padding margin-10-0">
+               <span class="vertical-center">Sayısının %</span>
+            </div>
+            <div class="col-lg-2 col-md-2 col-12">
+               <input type="text" autocomplete="off" id="formula2-val-2"/>
+            </div>
+            <div class="col-lg-2 col-md-2 col-12 padding">
+               <span class="vertical-center">Fazlası Kaçtır?</span>
+            </div>
+            <div class="col-lg-1 col-md-2 col-12 padding margin-10-0">
+               <button class="vertical-center horizontal-center margin-top-3 left" onclick="formula2Calculate()">Hesapla</button>
+            </div>
+            <div class="col-lg-2 col-md-2 col-10">
+               <input type="text" readonly id="formula2-result"/>
+            </div>
+            <div class="col-lg-1 col-md-1 col-2 padding margin-top-12 margin-top-11">
+               <span class="tooltip vertical-center">
+                  <span class="tooltiptext bottom-95">Kopyala</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" onclick="copyTextToClipboardInput('formula2-result')">
+                     <path d="M22 6v16h-16v-16h16zm2-2h-20v20h20v-20zm-24 17v-21h21v2h-19v19h-2z"/>
+                  </svg>
+               </span>
+            </div>
+            <span class="result-border"></span>
+            <div class="col-12 result">
+               <span id="formula2-result-desc"></span>
+               <div class="tooltip cursor-pointer">
+                  <span class="tooltiptext">Kopyala</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" onclick="copyTextToClipboardSpan('formula2-result-desc')">
+                     <path d="M22 6v16h-16v-16h16zm2-2h-20v20h20v-20zm-24 17v-21h21v2h-19v19h-2z"/>
+                  </svg>
+               </div>
+            </div>
+         </form>
+         <div class="row line"></div>
+		  <!-- #Formula-3 -->
+         <form class="row form-stil">
+            <div class="col-12 caption">
+               <div>
+                  <a href="#formula3">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
+                        <path d="M17.033 6.966c.584.583.584 1.529 0 2.112l-7.955 7.956c-.583.583-1.529.583-2.112 0-.583-.583-.583-1.529 0-2.112l7.956-7.956c.582-.583 1.528-.583 2.111 0zm-9.138 13.386c-1.171 1.171-3.076 1.171-4.248 0-1.171-1.171-1.171-3.077 0-4.248l5.639-5.632c-1.892-.459-3.971.05-5.449 1.528l-2.147 2.147c-2.254 2.254-2.254 5.909 0 8.163 2.254 2.254 5.909 2.254 8.163 0l2.147-2.148c1.477-1.477 1.986-3.556 1.527-5.448l-5.632 5.638zm6.251-18.662l-2.146 2.148c-1.478 1.478-1.99 3.553-1.53 5.445l5.634-5.635c1.172-1.171 3.077-1.171 4.248 0 1.172 1.171 1.172 3.077 0 4.248l-5.635 5.635c1.893.459 3.968-.053 5.445-1.53l2.146-2.147c2.254-2.254 2.254-5.908 0-8.163-2.253-2.254-5.908-2.254-8.162-.001z"/>
+                     </svg>
+                  </a>
+               </div>
+               <h2 id="formula3">A Sayısının %B Harici Kaçtır?</h2>
+            </div>
+            <span class="result-border"></span>
+            <div class="col-lg-2 col-md-2 col-12">
+               <input type="text" autocomplete="off" id="formula3-val-1"/>
+            </div>
+            <div class="col-lg-1 col-md-1 col-12 padding margin-10-0">
+               <span class="vertical-center">Sayısının %</span>
+            </div>
+            <div class="col-lg-2 col-md-2 col-12">
+               <input type="text" autocomplete="off" id="formula3-val-2"/>
+            </div>
+            <div class="col-lg-2 col-md-2 col-12 padding">
+               <span class="vertical-center">Harici Kaçtır?</span>
+            </div>
+            <div class="col-lg-1 col-md-2 col-12 padding margin-10-0">
+               <button class="vertical-center horizontal-center margin-top-3 left" onclick="formula3Calculate()">Hesapla</button>
+            </div>
+            <div class="col-lg-2 col-md-2 col-10">
+               <input type="text" readonly id="formula3-result"/>
+            </div>
+            <div class="col-lg-1 col-md-1 col-2 padding margin-top-12 margin-top-11">
+               <span class="tooltip vertical-center">
+                  <span class="tooltiptext bottom-95">Kopyala</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" onclick="copyTextToClipboardInput('formula3-result')">
+                     <path d="M22 6v16h-16v-16h16zm2-2h-20v20h20v-20zm-24 17v-21h21v2h-19v19h-2z"/>
+                  </svg>
+               </span>
+            </div>
+            <span class="result-border"></span>
+            <div class="col-12 result">
+               <span id="formula3-result-desc"></span>
+               <div class="tooltip cursor-pointer">
+                  <span class="tooltiptext">Kopyala</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" onclick="copyTextToClipboardSpan('formula3-result-desc')">
+                     <path d="M22 6v16h-16v-16h16zm2-2h-20v20h20v-20zm-24 17v-21h21v2h-19v19h-2z"/>
+                  </svg>
+               </div>
+            </div>
+         </form>
+         <div class="row line"></div>
+		  <!-- #Formula-4 -->
+         <form class="row form-stil">
+            <div class="col-12 caption">
+               <div>
+                  <a href="#formula4">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
+                        <path d="M17.033 6.966c.584.583.584 1.529 0 2.112l-7.955 7.956c-.583.583-1.529.583-2.112 0-.583-.583-.583-1.529 0-2.112l7.956-7.956c.582-.583 1.528-.583 2.111 0zm-9.138 13.386c-1.171 1.171-3.076 1.171-4.248 0-1.171-1.171-1.171-3.077 0-4.248l5.639-5.632c-1.892-.459-3.971.05-5.449 1.528l-2.147 2.147c-2.254 2.254-2.254 5.909 0 8.163 2.254 2.254 5.909 2.254 8.163 0l2.147-2.148c1.477-1.477 1.986-3.556 1.527-5.448l-5.632 5.638zm6.251-18.662l-2.146 2.148c-1.478 1.478-1.99 3.553-1.53 5.445l5.634-5.635c1.172-1.171 3.077-1.171 4.248 0 1.172 1.171 1.172 3.077 0 4.248l-5.635 5.635c1.893.459 3.968-.053 5.445-1.53l2.146-2.147c2.254-2.254 2.254-5.908 0-8.163-2.253-2.254-5.908-2.254-8.162-.001z"/>
+                     </svg>
+                  </a>
+               </div>
+               <h2 id="formula4">A Sayısının %B Eksiği Kaçtır?</h2>
+            </div>
+            <span class="result-border"></span>
+            <div class="col-lg-2 col-md-2 col-12">
+               <input type="text" autocomplete="off" id="formula4-val-1"/>
+            </div>
+            <div class="col-lg-1 col-md-1 col-12 padding margin-10-0">
+               <span class="vertical-center">Sayısının %</span>
+            </div>
+            <div class="col-lg-2 col-md-2 col-12">
+               <input type="text" autocomplete="off" id="formula4-val-2"/>
+            </div>
+            <div class="col-lg-2 col-md-2 col-12 padding">
+               <span class="vertical-center">Eksiği Kaçtır?</span>
+            </div>
+            <div class="col-lg-1 col-md-2 col-12 padding margin-10-0">
+               <button class="vertical-center horizontal-center margin-top-3 left" onclick="formula4Calculate()">Hesapla</button>
+            </div>
+            <div class="col-lg-2 col-md-2 col-10">
+               <input type="text" readonly id="formula4-result"/>
+            </div>
+            <div class="col-lg-1 col-md-1 col-2 padding margin-top-12 margin-top-11">
+               <span class="tooltip vertical-center">
+                  <span class="tooltiptext bottom-95">Kopyala</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" onclick="copyTextToClipboardInput('formula4-result')">
+                     <path d="M22 6v16h-16v-16h16zm2-2h-20v20h20v-20zm-24 17v-21h21v2h-19v19h-2z"/>
+                  </svg>
+               </span>
+            </div>
+            <span class="result-border"></span>
+            <div class="col-12 result">
+               <span id="formula4-result-desc"></span>
+               <div class="tooltip cursor-pointer">
+                  <span class="tooltiptext">Kopyala</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" onclick="copyTextToClipboardSpan('formula4-result-desc')">
+                     <path d="M22 6v16h-16v-16h16zm2-2h-20v20h20v-20zm-24 17v-21h21v2h-19v19h-2z"/>
+                  </svg>
+               </div>
+            </div>
+         </form>
+         <div class="row line"></div>
+		  <!-- #Formula-6 -->
+         <form class="row form-stil">
+            <div class="col-12 caption">
+               <div>
+                  <a href="#formula6">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
+                        <path d="M17.033 6.966c.584.583.584 1.529 0 2.112l-7.955 7.956c-.583.583-1.529.583-2.112 0-.583-.583-.583-1.529 0-2.112l7.956-7.956c.582-.583 1.528-.583 2.111 0zm-9.138 13.386c-1.171 1.171-3.076 1.171-4.248 0-1.171-1.171-1.171-3.077 0-4.248l5.639-5.632c-1.892-.459-3.971.05-5.449 1.528l-2.147 2.147c-2.254 2.254-2.254 5.909 0 8.163 2.254 2.254 5.909 2.254 8.163 0l2.147-2.148c1.477-1.477 1.986-3.556 1.527-5.448l-5.632 5.638zm6.251-18.662l-2.146 2.148c-1.478 1.478-1.99 3.553-1.53 5.445l5.634-5.635c1.172-1.171 3.077-1.171 4.248 0 1.172 1.171 1.172 3.077 0 4.248l-5.635 5.635c1.893.459 3.968-.053 5.445-1.53l2.146-2.147c2.254-2.254 2.254-5.908 0-8.163-2.253-2.254-5.908-2.254-8.162-.001z"/>
+                     </svg>
+                  </a>
+               </div>
+               <h2 id="formula6">A Sayısı B Saysının % Kaç Fazlasıdır?</h2>
+            </div>
+            <span class="result-border"></span>
+            <div class="col-lg-2 col-md-2 col-12">
+               <input type="text" autocomplete="off" id="formula6-val-1"/>
+            </div>
+            <div class="col-lg-1 col-md-1 col-12 padding margin-10-0">
+               <span class="vertical-center">Sayısı</span>
+            </div>
+            <div class="col-lg-2 col-md-2 col-12">
+               <input type="text" autocomplete="off" id="formula6-val-2"/>
+            </div>
+            <div class="col-lg-2 col-md-2 col-12 padding">
+               <span class="vertical-center font-size-15">Saysının % Kaç Fazlasıdır?</span>
+            </div>
+            <div class="col-lg-1 col-md-2 col-12 padding margin-10-0">
+               <button class="vertical-center horizontal-center margin-top-3 left" onclick="formula6Calculate()">Hesapla</button>
+            </div>
+            <div class="col-lg-2 col-md-2 col-10">
+               <input type="text" readonly id="formula6-result"/>
+            </div>
+            <div class="col-lg-1 col-md-1 col-2 padding margin-top-12 margin-top-11">
+               <span class="tooltip vertical-center">
+                  <span class="tooltiptext bottom-95">Kopyala</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" onclick="copyTextToClipboardInput('formula6-result')">
+                     <path d="M22 6v16h-16v-16h16zm2-2h-20v20h20v-20zm-24 17v-21h21v2h-19v19h-2z"/>
+                  </svg>
+               </span>
+            </div>
+            <span class="result-border"></span>
+            <div class="col-12 result">
+               <span id="formula6-result-desc"></span>
+               <div class="tooltip cursor-pointer">
+                  <span class="tooltiptext">Kopyala</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" onclick="copyTextToClipboardSpan('formula6-result-desc')">
+                     <path d="M22 6v16h-16v-16h16zm2-2h-20v20h20v-20zm-24 17v-21h21v2h-19v19h-2z"/>
+                  </svg>
+               </div>
+            </div>
+         </form>
+         <div class="row line"></div>
+		  <!-- #Formula-7 -->
+         <form class="row form-stil">
+            <div class="col-12 caption">
+               <div>
+                  <a href="#formula7">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
+                        <path d="M17.033 6.966c.584.583.584 1.529 0 2.112l-7.955 7.956c-.583.583-1.529.583-2.112 0-.583-.583-.583-1.529 0-2.112l7.956-7.956c.582-.583 1.528-.583 2.111 0zm-9.138 13.386c-1.171 1.171-3.076 1.171-4.248 0-1.171-1.171-1.171-3.077 0-4.248l5.639-5.632c-1.892-.459-3.971.05-5.449 1.528l-2.147 2.147c-2.254 2.254-2.254 5.909 0 8.163 2.254 2.254 5.909 2.254 8.163 0l2.147-2.148c1.477-1.477 1.986-3.556 1.527-5.448l-5.632 5.638zm6.251-18.662l-2.146 2.148c-1.478 1.478-1.99 3.553-1.53 5.445l5.634-5.635c1.172-1.171 3.077-1.171 4.248 0 1.172 1.171 1.172 3.077 0 4.248l-5.635 5.635c1.893.459 3.968-.053 5.445-1.53l2.146-2.147c2.254-2.254 2.254-5.908 0-8.163-2.253-2.254-5.908-2.254-8.162-.001z"/>
+                     </svg>
+                  </a>
+               </div>
+               <h2 id="formula7">A Sayısı B Saysının % Kaç Eksiğidir?</h2>
+            </div>
+            <span class="result-border"></span>
+            <div class="col-lg-2 col-md-2 col-12">
+               <input type="text" autocomplete="off" id="formula7-val-1"/>
+            </div>
+            <div class="col-lg-1 col-md-1 col-12 padding margin-10-0">
+               <span class="vertical-center">Sayısı</span>
+            </div>
+            <div class="col-lg-2 col-md-2 col-12">
+               <input type="text" autocomplete="off" id="formula7-val-2"/>
+            </div>
+            <div class="col-lg-2 col-md-2 col-12 padding">
+               <span class="vertical-center font-size-15">Saysının % Kaç Eksiğidir?</span>
+            </div>
+            <div class="col-lg-1 col-md-2 col-12 padding margin-10-0">
+               <button class="vertical-center horizontal-center margin-top-3 left" onclick="formula7Calculate()">Hesapla</button>
+            </div>
+            <div class="col-lg-2 col-md-2 col-10">
+               <input type="text" readonly id="formula7-result"/>
+            </div>
+            <div class="col-lg-1 col-md-1 col-2 padding margin-top-12 margin-top-11">
+               <span class="tooltip vertical-center">
+                  <span class="tooltiptext bottom-95">Kopyala</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" onclick="copyTextToClipboardInput('formula7-result')">
+                     <path d="M22 6v16h-16v-16h16zm2-2h-20v20h20v-20zm-24 17v-21h21v2h-19v19h-2z"/>
+                  </svg>
+               </span>
+            </div>
+            <span class="result-border"></span>
+            <div class="col-12 result">
+               <span id="formula7-result-desc"></span>
+               <div class="tooltip cursor-pointer">
+                  <span class="tooltiptext">Kopyala</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" onclick="copyTextToClipboardSpan('formula7-result-desc')">
+                     <path d="M22 6v16h-16v-16h16zm2-2h-20v20h20v-20zm-24 17v-21h21v2h-19v19h-2z"/>
+                  </svg>
+               </div>
+            </div>
+         </form>
+         <div class="row line"></div>
+		  <!-- #Formula-9 -->
+		 <form class="row form-stil">
+            <div class="col-12 caption">
+               <div>
+                  <a href="#formula9">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
+                        <path d="M17.033 6.966c.584.583.584 1.529 0 2.112l-7.955 7.956c-.583.583-1.529.583-2.112 0-.583-.583-.583-1.529 0-2.112l7.956-7.956c.582-.583 1.528-.583 2.111 0zm-9.138 13.386c-1.171 1.171-3.076 1.171-4.248 0-1.171-1.171-1.171-3.077 0-4.248l5.639-5.632c-1.892-.459-3.971.05-5.449 1.528l-2.147 2.147c-2.254 2.254-2.254 5.909 0 8.163 2.254 2.254 5.909 2.254 8.163 0l2.147-2.148c1.477-1.477 1.986-3.556 1.527-5.448l-5.632 5.638zm6.251-18.662l-2.146 2.148c-1.478 1.478-1.99 3.553-1.53 5.445l5.634-5.635c1.172-1.171 3.077-1.171 4.248 0 1.172 1.171 1.172 3.077 0 4.248l-5.635 5.635c1.893.459 3.968-.053 5.445-1.53l2.146-2.147c2.254-2.254 2.254-5.908 0-8.163-2.253-2.254-5.908-2.254-8.162-.001z"/>
+                     </svg>
+                  </a>
+               </div>
+               <h2 id="formula9">A Sayısı B Saysının % Kaç Haricidir?</h2>
+            </div>
+            <span class="result-border"></span>
+            <div class="col-lg-2 col-md-2 col-12">
+               <input type="text" autocomplete="off" id="formula9-val-1"/>
+            </div>
+            <div class="col-lg-1 col-md-1 col-12 padding margin-10-0">
+               <span class="vertical-center">Sayısı</span>
+            </div>
+            <div class="col-lg-2 col-md-2 col-12">
+               <input type="text" autocomplete="off" id="formula9-val-2"/>
+            </div>
+            <div class="col-lg-2 col-md-2 col-12 padding">
+               <span class="vertical-center font-size-15">Saysının % Kaç Haricidir?</span>
+            </div>
+            <div class="col-lg-1 col-md-2 col-12 padding margin-10-0">
+               <button class="vertical-center horizontal-center margin-top-3 left" onclick="formula9Calculate()">Hesapla</button>
+            </div>
+            <div class="col-lg-2 col-md-2 col-10">
+               <input type="text" readonly id="formula9-result"/>
+            </div>
+            <div class="col-lg-1 col-md-1 col-2 padding margin-top-12 margin-top-11">
+               <span class="tooltip vertical-center">
+                  <span class="tooltiptext bottom-95">Kopyala</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" onclick="copyTextToClipboardInput('formula9-result')">
+                     <path d="M22 6v16h-16v-16h16zm2-2h-20v20h20v-20zm-24 17v-21h21v2h-19v19h-2z"/>
+                  </svg>
+               </span>
+            </div>
+            <span class="result-border"></span>
+            <div class="col-12 result">
+               <span id="formula9-result-desc"></span>
+               <div class="tooltip cursor-pointer">
+                  <span class="tooltiptext">Kopyala</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" onclick="copyTextToClipboardSpan('formula9-result-desc')">
+                     <path d="M22 6v16h-16v-16h16zm2-2h-20v20h20v-20zm-24 17v-21h21v2h-19v19h-2z"/>
+                  </svg>
+               </div>
+            </div>
+         </form>
+         <div class="row line"></div>
+		  <!-- #Formula-8 -->
+         <form class="row form-stil">
+            <div class="col-12 caption">
+               <div>
+                  <a href="#formula8">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
+                        <path d="M17.033 6.966c.584.583.584 1.529 0 2.112l-7.955 7.956c-.583.583-1.529.583-2.112 0-.583-.583-.583-1.529 0-2.112l7.956-7.956c.582-.583 1.528-.583 2.111 0zm-9.138 13.386c-1.171 1.171-3.076 1.171-4.248 0-1.171-1.171-1.171-3.077 0-4.248l5.639-5.632c-1.892-.459-3.971.05-5.449 1.528l-2.147 2.147c-2.254 2.254-2.254 5.909 0 8.163 2.254 2.254 5.909 2.254 8.163 0l2.147-2.148c1.477-1.477 1.986-3.556 1.527-5.448l-5.632 5.638zm6.251-18.662l-2.146 2.148c-1.478 1.478-1.99 3.553-1.53 5.445l5.634-5.635c1.172-1.171 3.077-1.171 4.248 0 1.172 1.171 1.172 3.077 0 4.248l-5.635 5.635c1.893.459 3.968-.053 5.445-1.53l2.146-2.147c2.254-2.254 2.254-5.908 0-8.163-2.253-2.254-5.908-2.254-8.162-.001z"/>
+                     </svg>
+                  </a>
+               </div>
+               <h2 id="formula8">%A'sı B Olan Sayının %C'si Kaçtır?</h2>
+            </div>
+            <span class="result-border"></span>
+            <div class="col-lg-2 col-md-2 col-12">
+               <span class="vertical-center percent">%</span>
+               <input type="text" autocomplete="off" id="formula8-val-1" class="width-calc-20 width-calc-30"/>
+               <span class="vertical-center attachment" id="formula8-val-1-attachment"></span>
+            </div>
+            <div class="col-lg-2 col-md-2 col-12">
+               <input type="text" autocomplete="off" id="formula8-val-2" />
+            </div>
+            <div class="col-lg-1 col-md-1 col-12 padding">
+               <span class="vertical-center font-size-13 font-size-13">Olan Sayının %</span>
+            </div>
+            <div class="col-lg-2 col-md-2 col-12">
+               <input type="text" autocomplete="off" id="formula8-val-3" class="width-calc-20 width-calc-30"/>
+			    <span class="vertical-center attachment" id="formula8-val-3-attachment" class="width-calc-20 width-calc-30"></span>
+            </div>
+            <div class="col-lg-1 col-md-1 col-12 padding">
+               <span class="vertical-center">Kaçtır?</span>
+            </div>
+            <div class="col-lg-1 col-md-2 col-12 md-horizontal-hack">
+               <button class="vertical-center horizontal-center left" onclick="formula8Calculate()">Hesapla</button>
+            </div>
+            <div class="col-lg-2 col-md-2 col-10">
+               <input type="text" readonly id="formula8-result"/>
+               <span class="vertical-center horizontal-center tooltip cursor-pointer sm-grid-hack md-grid-hack md-grid-hack-2 md-show">
+                  <span class="tooltiptext">Kopyala</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" onclick="copyTextToClipboardInput('formula8-result')">
+                     <path d="M22 6v16h-16v-16h16zm2-2h-20v20h20v-20zm-24 17v-21h21v2h-19v19h-2z"/>
+                  </svg>
+               </span>
+            </div>
+            <div class="col-lg-1 col-md-1 col-sm-6 col-2 margin-top-11 sm-hide md-hide padding margin-top-12 margin-top-11">
+               <span class="vertical-center horizontal-center tooltip cursor-pointer">
+                  <span class="tooltiptext">Kopyala</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" onclick="copyTextToClipboardInput('formula8-result')">
+                     <path d="M22 6v16h-16v-16h16zm2-2h-20v20h20v-20zm-24 17v-21h21v2h-19v19h-2z"/>
+                  </svg>
+               </span>
+            </div>
+            <span class="result-border"></span>
+            <div class="col-12 result">
+               <span id="formula8-result-desc"></span>
+               <div class="tooltip cursor-pointer">
+                  <span class="tooltiptext">Kopyala</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" onclick="copyTextToClipboardSpan('formula8-result-desc')">
+                     <path d="M22 6v16h-16v-16h16zm2-2h-20v20h20v-20zm-24 17v-21h21v2h-19v19h-2z"/>
+                  </svg>
+               </div>
+            </div>
+         </form>
+         <div class="row line"></div>
+      </div>
+      <footer>
+         <div class="col-md-6 col-12">
+            <ul>
+               <li>© 2021</li>
+               <li>İletişim:</li>
+               <li><a href="mailto:info@yuzhehesaplama.com">info@yuzhehesaplama.com</a></li>
+            </ul>
+         </div>
+         <div class="col-md-6 col-12 text-align-right">
+            <ul>
+               <li>Autres langues:</li>
+			    <li><a href="/">TR</a></li>
+               <li><a href="en/index.htm">EN</a></li>
+               <li><a href="de/index.htm">DE</a></li>
+            </ul>
+         </div>
+      </footer>
+      <script src="app.js"></script>
+   </body>
+</html>
